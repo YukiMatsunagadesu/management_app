@@ -1,0 +1,50 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  background-color: #50d3ed;
+  font-size:1.5rem;
+}
+
+.header_list ul{
+  display: flex;
+  background: #000;
+
+  
+}
+.header_list ul li{
+  list-style: none;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+
+.header_list ul li:hover{
+  background-color: #6e3be4;
+}
+.header_list ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+.today{
+  font-size: 6rem;
+  text-align: center;
+  margin-top: 96px;
+}
+.message{
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 32px;
+}
+.notice ul{
+  position: absolute;
+  bottom: 32px;
+}
+.notice ul li{
+  font-size: 2rem;
+
+}
+
