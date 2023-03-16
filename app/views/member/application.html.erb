@@ -2,7 +2,7 @@
 お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
  
 </header>
- <ul>
+ <ul class="member_header">
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>

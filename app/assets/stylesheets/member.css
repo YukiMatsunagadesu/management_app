@@ -1,9 +1,9 @@
 /* ページ遷移部分 あとで変える*/
-ul{
+.member_header{
     display: flex;
     list-style:none;
 }
-ul li{
+.member_header li{
     margin-left: 16px;
 }
 /* ページ遷移部分 あとで変える*/
@@ -39,4 +39,16 @@ ul li{
     border: 1px solid black;
     margin: 16px;
     cursor: pointer;
+}
+
+/* メンバー一覧に関するcss */
+
+.member_add{
+    text-align: center;
+}
+.member_content{
+    border: 1px solid black;
+    text-align: center;
+    margin: 8px;
+    padding: 8px;
 }

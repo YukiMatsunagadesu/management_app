@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   get '/admin/today', to:'admin#today'
   get '/admin/application', to:'admin#application'
   get '/admin/employeelist', to:'admin#employeelist'
+  get '/admin/:id/employeelist_edit',to:'admin#employeelist_edit'
+  post'/admin/:id/employeelist_update', to:'admin#employeelist_update'
   get '/admin/management', to:'admin#management'
   get '/admin/schedule', to:'admin#schedule'
+  get '/admin/new_member', to:'admin#new_member'
+  post '/admin/member_create', to:'admin#member_create'
+  
   get '/member/:id',to:'member#top'
   get '/member/:id/calender', to:'member#calender'
   get '/member/:id/application', to:'member#application'

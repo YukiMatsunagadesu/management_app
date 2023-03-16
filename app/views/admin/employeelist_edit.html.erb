@@ -1,0 +1,9 @@
+<%= @member.id %>のひとを編集します
+<div class="employeelist_edit">
+    <%=form_tag("/admin/#{@member.id}/employeelist_update") do%>
+        名前<input type="text" value=<%= @member.name %> name="name">
+        メールアドレス<input type="text" value=<%= @member.mail %> name="mail">
+        電話番号<input type="text" value=<%= @member.phone %> name="phone">
+        <input type="submit">
+    <%end%>
+</div>

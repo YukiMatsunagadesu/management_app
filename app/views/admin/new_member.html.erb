@@ -13,17 +13,10 @@
     </ul>
   </div>
 </header>
-<main>
-  <div class="today">
-  10/20 13:12
-  </div>
-  <div class="message">
-  今日も一日頑張りましょう
-  </div>
-  <div class="notice">
-    <ul>
-      <li>お知らせ１</li>
-      <li>お知らせ２</li>
-    </ul>
-  </div>
-</main>
+ここで新しいメンバーを追加します
+<%= form_tag("/admin/member_create") do%>
+    name<input type="text" name="name">
+    phone<input type="text" name="phone">
+    mail<input type="text" name="mail">
+    <input type="submit">
+<% end %>
