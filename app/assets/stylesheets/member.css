@@ -1,0 +1,42 @@
+/* ページ遷移部分 あとで変える*/
+ul{
+    display: flex;
+    list-style:none;
+}
+ul li{
+    margin-left: 16px;
+}
+/* ページ遷移部分 あとで変える*/
+
+.today{
+    font-size: 2rem;
+}
+
+.manage_button{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.start_button{
+    border: 1px solid black;
+    margin: 16px;
+    cursor: pointer;
+}
+.rest_start_button{
+    border: 1px solid black;
+    margin: 16px;
+    cursor: pointer;
+}
+.rest_end_button{
+    border: 1px solid black;
+    margin: 16px;
+    cursor: pointer;
+}
+.end_button{
+    border: 1px solid black;
+    margin: 16px;
+    cursor: pointer;
+}

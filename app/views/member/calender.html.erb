@@ -1,6 +1,5 @@
 <header>
-お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
- 
+    お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
 </header>
  <ul>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
@@ -9,14 +8,5 @@
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
   </ul>
 <main>
-  <div class="today">
-    <%= Time.now %>
-  </div>
-  <div class="manage_button">
-    <div class="start_button">出勤</div>
-    <div class="rest_start_button">休入</div>
-    <div class="rest_end_button">休戻</div>
-    <div class="end_button">退勤</div>
-  </div>
+   <%= @member.name %>さんのカレンダー
 </main>
-
