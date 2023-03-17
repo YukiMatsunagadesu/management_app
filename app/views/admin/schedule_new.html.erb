@@ -1,0 +1,45 @@
+<header>
+  <div class="header_message">
+  お帰りなさい社員No.1 あかさたなさん
+  </div>
+  <div class="header_list">
+    <ul>
+      <li><%=link_to('home','/admin')%></li>
+      <li><%=link_to('今日のメンバー','/admin/today')%></li>
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
+      <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
+      <li><%=link_to('勤怠管理','/admin/management')%></li>
+      <li><%=link_to('シフト管理','/admin/schedule')%></li>
+    </ul>
+  </div>
+</header>
+
+
+<main>
+ここで労働者『<%=@member.name%>』の勤務時間を決定します
+     <div class="schedule_new_content">
+        <%=Time.now.strftime('%Y年%m月')%>
+          <table>
+            <thead>
+              <tr>
+                <th>日付</th>
+                <th>予定勤務開始時間</th>
+                <th>予定勤務終了時間</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% (@start_date..@end_date).each do |date| %>
+                <tr>
+                  <td><%= date.strftime('%d') %></td>
+                  <% if @member.attendances.exists?(work_date: date.strftime('%Y-%m-%d')) %>
+                    <td><input type="text" ></td>
+                    <td><input type="text"></td>
+                  <%end%>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+      </div>
+</main>

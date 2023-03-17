@@ -14,4 +14,15 @@
     </ul>
   </div>
 </header>
-今日のメンバー
+<main>
+ <div class="admin_today_container">
+    今日のメンバー
+  <div class="admin_today_content">
+    <%@members.each do |member|%>
+      <% if member.attendances.exists?(work_date: Date.today) %>
+        <%=member.name%>
+      <%end%>
+    <%end%>
+  </div>
+ </div>
+</main>

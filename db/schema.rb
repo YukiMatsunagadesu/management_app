@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_040959) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_052800) do
   create_table "attendances", force: :cascade do |t|
     t.date "work_date"
     t.datetime "start_time"
@@ -21,6 +21,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_040959) do
     t.datetime "scheduled_work_end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "member_id", null: false
+    t.index ["member_id"], name: "index_attendances_on_member_id"
   end
 
   create_table "holidayworks", force: :cascade do |t|
@@ -59,4 +61,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_040959) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "attendances", "members"
 end

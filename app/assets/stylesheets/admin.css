@@ -72,14 +72,25 @@ header{
 
 
 /* admin/employeelist_editのスタイリング */
-.employeelist_edit{
+.employeelist_edit_container{
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 70vh;
 }
 
+
+.employeelist_edit_content{
+  border: 1px solid black;
+  padding: 32px;
+  margin: 32px;
+}
+.employeelist_edit_content .submit{
+  margin-top: 32px;
+  margin-left: 240px;
+}
 /* employeelist.html.erb */
 
 .member_add{
@@ -145,3 +156,51 @@ header{
 .new_member_form_content_submit{
   margin-top: 32px;
 }
+
+/* scheludle.html.erb  */
+.admin_schedule_container{
+
+}
+
+.admin_schedule_content{
+  border: 1px solid black;
+  margin: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+/* shedule_new.html.erb  */
+.schedule_new_work_date{
+  border: 1px solid black;
+  text-align: center;
+}
+
+.schedule_new_content{
+  text-align: center;
+}
+
+.schedule_new_content table{
+  margin: 0 auto;
+}
+
+/* admin/today.html.erb  */
+.admin_today_container{
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  border: 1px solid black;
+  margin: 32px;
+  padding: 32px;
+}
+
+.admin_today_content{
+  margin-top: 16px;
+  border: 1px solid black;
+}
+
+

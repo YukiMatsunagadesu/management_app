@@ -4,8 +4,8 @@
 </header>
  <ul>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
-    <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
+    <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
   </ul>
 <main>
@@ -13,10 +13,18 @@
     <%= Time.now %>
   </div>
   <div class="manage_button">
-    <div class="start_button">出勤</div>
-    <div class="rest_start_button">休入</div>
-    <div class="rest_end_button">休戻</div>
-    <div class="end_button">退勤</div>
+    <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post %>
+    <%= button_to '休入', "/member/#{@member.id}/rest_start_time", method: :post %>
+    <%= button_to '休戻', "/member/#{@member.id}/rest_end_time", method: :post %>
+    <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post %>  
   </div>
+ 
+ <%@attendances.each do |attendance|%>
+   出勤時間<%=attendance.start_time%>
+   休入時間<%=attendance.rest_start_time%>
+   休戻時間<%=attendance.rest_end_time%>
+   退勤時間<%=attendance.end_time%>
+ <%end%>
+
 </main>
 

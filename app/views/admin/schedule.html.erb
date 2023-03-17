@@ -15,3 +15,14 @@
   </div>
 </header>
 シフト管理します
+<main>
+  <div class="admin_schedule_container">
+      <% @members.each do |member|%>
+        <div class="admin_schedule_content">
+        <%=link_to(member.name ,"/admin/schedule/#{member.id}")%>
+        <%=member.id%>
+        </div>
+      <%end%>
+  </div>
+</main>
+

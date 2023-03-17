@@ -23,7 +23,7 @@
 
 
 
-
+/* /member/id.html  */
 .member_today{
     font-size: 2rem;
 }
@@ -36,22 +36,18 @@
     align-items: center;
     font-size: 2rem;
 }
-.start_button{
+
+.manage_button .rest_start_button{
     border: 1px solid black;
     margin: 16px;
     cursor: pointer;
 }
-.rest_start_button{
+.manage_button .rest_end_button{
     border: 1px solid black;
     margin: 16px;
     cursor: pointer;
 }
-.rest_end_button{
-    border: 1px solid black;
-    margin: 16px;
-    cursor: pointer;
-}
-.end_button{
+.manage_button .end_button{
     border: 1px solid black;
     margin: 16px;
     cursor: pointer;
