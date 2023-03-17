@@ -1,43 +1,52 @@
+/* 共通のスタイリング */
 *{
   margin: 0;
   padding: 0;
 }
 
 header{
-  background-color: #50d3ed;
+  background-color: #afe2ec;
   font-size:1.5rem;
 }
-
+.header_list{
+  display: flex;
+  justify-content: flex-end;
+}
 .header_list ul{
   display: flex;
-  background: #000;
-
-  
 }
 .header_list ul li{
   list-style: none;
-  margin-right: 16px;
   cursor: pointer;
+  border: 1px solid black;
+  padding: 0 16px;
 }
 
 
 .header_list ul li:hover{
-  background-color: #6e3be4;
+  background-color: #ebebed;
 }
 .header_list ul li a{
   text-decoration: none;
-  color: white;
+  color: rgb(21, 20, 20);
 }
 
-.today{
-  font-size: 6rem;
+/* /admin */
+.admin_today{
+  font-size: 5rem;
   text-align: center;
-  margin-top: 96px;
 }
 .message{
   font-size: 2rem;
   text-align: center;
   margin-top: 32px;
+}
+
+.admin_content{
+  
+  border: 1px solid black;
+  padding: 32px;
+  margin: 96px 32px;
 }
 .notice ul{
   position: absolute;
@@ -47,12 +56,92 @@ header{
   font-size: 2rem;
 
 }
+/* admin/employeelist */
+.member_add{
+  margin: 32px;
+  padding: 8px;
+  border: 1px solid black;
+  background-color: #88ea99a4;
+}
 
-/* employeelist_editのスタイリング */
+.member_add a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+/* admin/employeelist_editのスタイリング */
 .employeelist_edit{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+/* employeelist.html.erb */
+
+.member_add{
+  text-align: center;
+}
+.member_add:hover{
+  background-color: #41eb85;
+}
+
+.member_list{
+  margin: 16px;
+  padding: 16px;
+  border: 1px solid black;
+}
+
+.member_content{
+  border: 1px solid black;
+  text-align: center;
+  margin: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6a7e032;
+}
+.member_content a{
+  text-decoration:none;
+}
+
+.member_content button {
+  background-color: #ec9494;
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.member_content button:hover {
+  background-color: #f22828;
+  color: rgb(0, 0, 0);
+}
+
+/* new_member.html.erb  */
+.new_member_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+}
+.new_member_content{
+  font-size: 2rem;
+  border: 1px solid black;
+  margin: 32px;
+  padding: 32px;
+}
+.new_member_content p{
+  font-size: 1rem;
+}
+.new_member_form_content{
+  display: flex;
+  flex-direction: column;
+}
+.new_member_form_content_submit{
+  margin-top: 32px;
 }

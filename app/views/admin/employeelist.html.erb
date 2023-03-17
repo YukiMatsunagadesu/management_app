@@ -6,7 +6,8 @@
     <ul>
       <li><%=link_to('home','/admin')%></li>
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
-      <li><%=link_to('申請一覧','/admin/application')%></li>
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('シフト管理','/admin/schedule')%></li>
@@ -18,11 +19,14 @@
 <div class="member_list">
   <% @members.each do |member| %>
     <div class="member_content">
-      名前<%= member.name %>
-      社員番号<%= member.id %>
-      メールアドレス<%= member.mail%>
+      社員番号 <%= member.id %>
+      名前 <%= member.name %>
+      雇用形態 <%= member.type %>
+      メールアドレス <%= member.mail%>
+      電話番号 <%= member.phone%>
+      パスワード <%= member.password%>
       <%=link_to("編集する","/admin/#{member.id}/employeelist_edit")%>
-      削除する
+      <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post"}) %>
     </div>
   <% end %>
 </div>

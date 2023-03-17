@@ -6,17 +6,28 @@
     <ul>
       <li><%=link_to('home','/admin')%></li>
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
-      <li><%=link_to('申請一覧','/admin/application')%></li>
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('シフト管理','/admin/schedule')%></li>
     </ul>
   </div>
 </header>
-ここで新しいメンバーを追加します
-<%= form_tag("/admin/member_create") do%>
-    name<input type="text" name="name">
-    phone<input type="text" name="phone">
-    mail<input type="text" name="mail">
-    <input type="submit">
-<% end %>
+<main>
+  <div class="new_member_container">
+    <div class="new_member_content">
+      <p>新しいメンバーを追加してください</p>
+      <%= form_tag("/admin/member_create") do%>
+        <div class="new_member_form_content">
+          名前<input type="text" name="name">
+          雇用形態<input type="text" name="type">
+          メールアドレス<input type="text" name="mail">
+          電話番号<input type="text" name="phone">
+          パスワード<input type="text" name="password">
+          <input type="submit" class="new_member_form_content_submit">
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

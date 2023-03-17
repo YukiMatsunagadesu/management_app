@@ -6,9 +6,25 @@
 .member_header li{
     margin-left: 16px;
 }
-/* ページ遷移部分 あとで変える*/
+/* attendance_management.html.erb  */
+.attendance_management_container{
+    border: 1px solid black;
+    margin: 32px;
+    padding: 32px;
+    background-color: #bcf0cb;
+}
+.attendance_management_content{
+    text-align: center;
+}
 
-.today{
+.attendance_management_content table{
+    margin: 0 auto;
+}
+
+
+
+
+.member_today{
     font-size: 2rem;
 }
 
@@ -41,14 +57,27 @@
     cursor: pointer;
 }
 
-/* メンバー一覧に関するcss */
 
-.member_add{
-    text-align: center;
+
+/* profile_edit.html.erb */
+.profile_edit_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
 }
-.member_content{
+
+.profile_edit_content{
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
-    text-align: center;
-    margin: 8px;
-    padding: 8px;
+    font-size: 2rem;
+    padding: 32px;
+
+    background-color: #a6dfec;
+}
+.profile_edit_content .submit{
+    margin: 0 180px;
 }

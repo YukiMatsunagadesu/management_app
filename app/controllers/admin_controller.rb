@@ -8,6 +8,9 @@ class AdminController < ApplicationController
   def application
   end
 
+  def other_application
+  end
+
   def employeelist
     @members=Member.all
    
@@ -25,6 +28,12 @@ class AdminController < ApplicationController
     redirect_to("/admin/employeelist")
   end
 
+  def employeelist_delete
+    @member=Member.find(params[:id])
+    @member.destroy
+    redirect_to("/admin/employeelist")
+  end
+
   def management
   end
 
@@ -35,7 +44,7 @@ class AdminController < ApplicationController
   end
 
   def member_create
-    @member=Member.new(name: params[:name],phone: params[:phone],mail:params[:mail])
+    @member=Member.new(name: params[:name],type: params[:type],mail:params[:mail],phone: params[:phone],password: params[:password])
     @member.save
     redirect_to("/admin/employeelist")
   end
