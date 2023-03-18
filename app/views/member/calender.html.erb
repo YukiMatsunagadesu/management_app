@@ -1,12 +1,25 @@
-<header>
+
+<header class="member_header">
+  <div class="name">
     お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+  </div>
+   <ul class="member_burger">
+      <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
+      <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
+      <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
+      <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+      <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
+   </ul>
 </header>
- <ul>
-    <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
-    <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
-    <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
-    <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
-  </ul>
 <main>
-   <%= @member.name %>さんのカレンダー
+   <div class="member_work_calender_container">
+      <div class="name">
+        <%= @member.name %>さんの勤務カレンダー
+      </div>
+      <%# <%=Time.now.strftime('%Y年%m月')%>   
+      <%= month_calendar do |date| %>
+        <%= date.strftime('%d') %>
+      <% end %>
+   </div>
 </main>
+

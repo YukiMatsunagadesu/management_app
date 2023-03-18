@@ -1,19 +1,110 @@
-/* ページ遷移部分 あとで変える*/
+/* * */
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .member_header{
     display: flex;
+    border-radius: 16px;
+    margin: 4px;
+    padding: 16px;
+}
+
+
+.member_header .name{
+    height: fit-content;
+    background-color: #f0abab;
+    border-radius: 16px;
+    padding: 16px;
+
+}
+
+.member_burger{
+    border: 1px solid rgb(125, 121, 121);
+    width: fit-content;
+    padding: 16px;
+    margin-left: auto;
+}
+.member_burger li{
     list-style:none;
 }
-.member_header li{
-    margin-left: 16px;
+.member_burger li:hover{
+    border-bottom: 1px solid black;
 }
+
+.member_burger li a{
+    color: #111111;
+    text-decoration: none;
+}
+
+/* application.html.erb  */
+.member_application_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    text-align: center;
+    margin: 16px auto;
+    font-size: 2rem;
+    background-color: #f5f9dc;
+}
+.member_application_content{
+    margin: 32px;
+}
+
+.over_time_application{
+    border: 1px solid black;
+    margin: 16px auto;
+    cursor: pointer;
+}
+.over_time_application:hover{
+    background-color: #cde770;
+}
+
+.rest-application{
+    border: 1px solid black;
+    margin: 16px auto;
+    cursor: pointer;
+}
+.rest-application:hover{
+    background-color: #cde770;
+}
+
+.holiday_work_application{
+    border: 1px solid black;
+    margin: 16px auto;
+    cursor: pointer;
+}
+.holiday_work_application:hover{
+    background-color: #cde770;
+}
+
+.time_modify_application{
+    border: 1px solid black;
+    margin: 16px auto;
+    cursor: pointer;
+}
+.time_modify_application:hover{
+    background-color: #cde770;
+}
+
+
 /* attendance_management.html.erb  */
 .attendance_management_container{
-    border: 1px solid black;
-    margin: 32px;
     padding: 32px;
-    background-color: #bcf0cb;
+    background-color: #6a5f5f3b;
 }
+
+.attendance_management_container .pagename{
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 16px;
+}
+
 .attendance_management_content{
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
@@ -23,34 +114,43 @@
 
 
 
-/* /member/id.html  */
-.member_today{
-    font-size: 2rem;
-}
 
-.manage_button{
-    border: 1px solid black;
+/* /member/:id/calender  */
+.member_work_calender_container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    text-align: center;
+    font-size: 1.7rem;
+    background-color: #39363640;
+}
+.member_work_calender_container .name{
+    border-bottom: 1px solid rgb(74, 67, 67);
+
+    margin-bottom: 16px;
 }
 
-.manage_button .rest_start_button{
-    border: 1px solid black;
-    margin: 16px;
-    cursor: pointer;
+.simple-calendar{
+
+    display:inline-block;
+    margin: 0 auto;
+    background-color: #42e1ef60;
+    border-radius: 6px;
+    padding: 20px;
 }
-.manage_button .rest_end_button{
-    border: 1px solid black;
-    margin: 16px;
-    cursor: pointer;
+
+.simple-calendar th:nth-child(7){
+    color: rgb(232, 67, 67);
 }
-.manage_button .end_button{
+
+.simple-calendar th:nth-child(6){
+    color: blue;
+}
+
+.simple-calendar td{
     border: 1px solid black;
-    margin: 16px;
-    cursor: pointer;
+    padding: 0 40px 40px;
 }
 
 
@@ -63,17 +163,73 @@
     align-items: center;
     height: 50vh;
 }
+.profile_edit_container .page_name{
+font-size: 2rem;
+border: 1px solid black;
+padding: 8px 16px;
+border-radius: 4px;
+}
 
 .profile_edit_content{
     margin-top: 32px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 32px;
 
     background-color: #a6dfec;
 }
+
+
 .profile_edit_content .submit{
     margin: 0 180px;
+}
+
+
+
+/* top.html.erb  */
+.member_top_container{
+    font-size: 2rem;
+    text-align: center;
+    background-color: #3c3a3a4d;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.manage_button{
+    border: 1px solid black;
+    background-color: #d4ebfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    margin: 32px 240px;
+    padding: 32px;
+
+}
+
+.manage_button button{
+    font-size: 2rem;
+    padding: 16px;
+    border: 1px solid black;
+    margin: 16px;
+    cursor: pointer;
+}
+.time_message{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.latest_start_time{
+ border: 0.2px solid black;
+}
+.latest_rest_start_time{
+ border: 0.2px solid black;
+}
+.latest_rest_end_time{
+ border: 0.2px solid black;
+}
+.latest_end_time{
+ border: 0.2px solid black;
 }

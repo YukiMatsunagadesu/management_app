@@ -1,16 +1,24 @@
-<header>
-お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
- 
-</header>
- <ul>
+<header class="member_header">
+  <div class="name">
+    お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+  </div>
+
+ <ul class="member_burger">
+    <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
     <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
   </ul>
+</header>
 <main>
-  <div class="member_today">
-    <%= Time.now %>
+  <div class="member_top_container">
+    <%= Time.now.strftime('%Y-%m-%d %H:%M') %>
+    <%if Time.now.hour>18%>
+      <p>今日もお疲れ様でした!</p> 
+    <%else%>
+      <p>今日も頑張りましょう!!</p>
+    <%end%>
   </div>
   <div class="manage_button">
     <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post %>
@@ -18,13 +26,25 @@
     <%= button_to '休戻', "/member/#{@member.id}/rest_end_time", method: :post %>
     <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post %>  
   </div>
- 
- <%@attendances.each do |attendance|%>
-   出勤時間<%=attendance.start_time%>
-   休入時間<%=attendance.rest_start_time%>
-   休戻時間<%=attendance.rest_end_time%>
-   退勤時間<%=attendance.end_time%>
- <%end%>
+  <div class="time_message">
+    <% latest_start_time = @attendances.last.start_time %>
+    <% latest_rest_start_time = @attendances.last.rest_start_time %>
+    <% latest_rest_end_time = @attendances.last.rest_end_time %>
+    <% latest_end_time = @attendances.last.end_time %>
+    <div class="latest_start_time">
+      出勤時間<%=latest_start_time%>
+    </div>
+    <div class="latest_rest_start_time">
+      休入時間<%=latest_rest_start_time%>
+    </div>
+    <div class="latest_rest_end_time">
+      休戻時間<%=latest_rest_end_time%>
+    </div>
+    <div class="latest_end_time">
+      退勤時間<%=latest_end_time%> 
+    </div>
+   </div>
+
 
 </main>
 

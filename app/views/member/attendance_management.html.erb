@@ -1,37 +1,23 @@
-<header>
-お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
- 
-</header>
-  <ul>
+<header class="member_header">
+  <div class="name">
+    お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+  </div>
+  <ul class="member_burger">
+    <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
     <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
   </ul>
-  ここでシフト管理できます
-
-  <main>
-    <div class="attendance_management_container">
-      <div class="attendance_management_content">
-        <%=Time.now.strftime('%Y年%m月')%>
-          <table>
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>予定勤務開始時間</th>
-                <th>予定勤務終了時間</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% (@start_date..@end_date).each do |date| %>
-                <tr>
-                  <td><%= date.strftime('%d') %></td>
-                  <td><input type="text"></td>
-                  <td><input type="text"></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-      </div>
+</header>
+<main>
+  <div class="attendance_management_container">
+    <div class="pagename">シフト管理用ページ</div>
+    <div class="attendance_management_content">
+      <%=Time.now.strftime('%Y年%m月')%>
+      <%= month_calendar do |date| %>
+        <%= date.strftime('%d') %>
+       <% end %>
     </div>
-  </main>
+  </div>
+</main>

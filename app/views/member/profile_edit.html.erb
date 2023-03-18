@@ -1,23 +1,26 @@
- <header>
-お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+ <header class="member_header">
+  <div class="name">
+    お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+  </div>
  
-</header>
- <ul>
+
+ <ul class="member_burger">
+    <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
     <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
   </ul>
+</header>
 <main>
   <div class="profile_edit_container">
-    <div>プロフィール編集ページ</div>
-    <div class="profile_edit_content">
-      <%=form_tag("/member/#{@id}/profile_update") do%>
-        <div>名前 <input type="text" value=<%= @member.name %> name="name"> </div>
-        <div>メール <input type="text" value=<%= @member.mail %> name="mail"> </div>
-        <div>電話 <input type="text" value=<%= @member.phone%> name="phone"> </div>
-        <input type="submit" class="submit">
-      <%end%>
-    </div>
+      <div class="page_name">プロフィール編集ページ</div>
+      <div class="profile_edit_content">
+        <%=form_tag("/member/#{@id}/profile_update") do%>
+          <div>名前 <input type="text" value=<%= @member.name %> name="name"> </div>
+          <div>メール <input type="text" value=<%= @member.mail %> name="mail"> </div>
+          <div>電話 <input type="text" value=<%= @member.phone%> name="phone"> </div>
+          <input type="submit" class="submit">
+        <%end%>
   </div>
 </main>
