@@ -18,9 +18,9 @@
 <div class="employeelist_edit_container">
     <div class="employeelist_edit_content">
         <%=form_tag("/admin/#{@member.id}/employeelist_update") do%>
-            <div> 名前<input type="text" value=<%= @member.name %> name="name"> </div>
-            <div> メールアドレス<input type="text" value=<%= @member.mail %> name="mail"> </div>
-            <div>電話番号<input type="text" value=<%= @member.phone %> name="phone"></div>
+            <div> 名前<input type="text" placeholder=<%= @member.name %> name="name"> </div>
+            <div> メールアドレス<input type="text" placeholder=<%= @member.mail %> name="mail"> </div>
+            <div>電話番号<input type="text" placeholder=<%= @member.phone %> name="phone"></div>
             <input type="submit" class="submit">
         <%end%>
     </div>

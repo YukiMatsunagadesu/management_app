@@ -17,29 +17,19 @@
 
 
 <main>
-ここで労働者『<%=@member.name%>』の勤務時間を決定します
+     <div class="schedule_new_name">『<%=@member.name%>』さんの勤務カレンダーです</div>  
      <div class="schedule_new_content">
         <%=Time.now.strftime('%Y年%m月')%>
-          <table>
-            <thead>
-              <tr>
-                <th>日付</th>
-                <th>予定勤務開始時間</th>
-                <th>予定勤務終了時間</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% (@start_date..@end_date).each do |date| %>
-                <tr>
-                  <td><%= date.strftime('%d(%a)') %></td>
-                  <% if @member.attendances.exists?(work_date: date.strftime('%Y-%m-%d')) %>
-                    <td><input type="text" ></td>
-                    <td><input type="text"></td>
-                  <%end%>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-
+        <div class="calendar_content">
+          <%= month_calendar do |date| %>
+            <%= date.strftime('%d') %>
+            <br>
+            <% attendance = Attendance.find_by(work_date: date,member_id:@member.id) %>
+            <% if attendance %>
+              出勤 <%= @attendance&.start_time&.strftime('%H:%M')%><br>
+              退勤 <%= @attendance&.end_time&.strftime('%H:%M')%><br>
+            <% end %>
+          <% end %>
+        </div>
       </div>
 </main>

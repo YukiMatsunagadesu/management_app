@@ -17,6 +17,10 @@
       <%=Time.now.strftime('%Y年%m月')%>
       <%= month_calendar do |date| %>
         <%= date.strftime('%d') %>
+        <br>
+        <input type="text" placeholder="始業時間"><input type="text" placeholder="終了時間">
+        <br>
+        <button>登録</button>
        <% end %>
     </div>
   </div>

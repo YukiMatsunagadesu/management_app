@@ -14,13 +14,14 @@
     </ul>
   </div>
 </header>
-シフト管理します
-<main>
-  <div class="admin_schedule_container">
+
+<main class="schedule_page">
+  <div class="page_name">シフト登録管理ページ</div>
+  <div class="admin_schedule_container">   
       <% @members.each do |member|%>
         <div class="admin_schedule_content">
+        社員番号<%=member.id%>
         <%=link_to(member.name ,"/admin/schedule/#{member.id}")%>
-        <%=member.id%>
         </div>
       <%end%>
   </div>

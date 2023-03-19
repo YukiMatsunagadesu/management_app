@@ -18,7 +18,12 @@
       </div>
       <%# <%=Time.now.strftime('%Y年%m月')%>   
       <%= month_calendar do |date| %>
-        <%= date.strftime('%d') %>
+        <%= date.strftime('%d') %><br>
+          <% attendance = Attendance.find_by(work_date: date,member_id:@member.id) %>
+          <% if attendance %>
+           実始 <%=@attendance&.start_time&.strftime('%H:%M')%><br>
+           実終 <%=@attendance&.end_time&.strftime('%H:%M')%>
+          <%end%>
       <% end %>
    </div>
 </main>

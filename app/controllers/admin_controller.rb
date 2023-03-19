@@ -36,6 +36,7 @@ class AdminController < ApplicationController
   end
 
   def management
+    @members=Member.all
   end
 
   def schedule
@@ -43,9 +44,7 @@ class AdminController < ApplicationController
   end
   def schedule_new
     @member=Member.find(params[:id])  
-    @attendances=Attendance.where(member_id: params[:id])
-    @start_date = Date.current.beginning_of_month
-    @end_date = Date.current.end_of_month
+    @attendance = Attendance.where(member_id: @member.id, work_date: Date.today).last
   end
 
   def new_member

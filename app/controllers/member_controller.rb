@@ -2,12 +2,13 @@ class MemberController < ApplicationController
   def top
     @id=params[:id]
     @member=Member.find(params[:id])
-
-    @attendances=Attendance.all
+    @attendance=Attendance.where(member_id: @member.id)
   end
+  
   def calender
     @id=params[:id]
     @member=Member.find(params[:id])
+    @attendance = Attendance.where(member_id: @member.id, work_date: Date.today).last
     
   end
   def application
@@ -36,26 +37,29 @@ class MemberController < ApplicationController
 
   def start_time
     @member=Member.find(params[:id])
-    @attendance = Attendance.new(work_date: Date.today, start_time: Time.now,member_id: @member.id)
+    @attendance = Attendance.new(work_date: Date.today, start_time: Time.now, member_id: @member.id)
     @attendance.save
     redirect_to("/member/#{@member.id}")
   end
 
   def rest_start_time
     @member=Member.find(params[:id])
-    @attendance = Attendance.new(work_date: Date.today, rest_start_time: Time.now,member_id: @member.id)
+    @attendance = Attendance.where(member_id: @member.id, work_date: Date.today).last
+    @attendance.update(rest_start_time: Time.now)
     @attendance.save
     redirect_to("/member/#{@member.id}")
   end
   def rest_end_time
     @member=Member.find(params[:id])
-    @attendance = Attendance.new(work_date: Date.today, rest_end_time: Time.now,member_id: @member.id)
+    @attendance = Attendance.where(member_id: @member.id, work_date: Date.today).last
+    @attendance.update(rest_end_time: Time.now)
     @attendance.save
     redirect_to("/member/#{@member.id}")
   end
   def end_time
     @member=Member.find(params[:id])
-    @attendance = Attendance.new(work_date: Date.today, end_time: Time.now,member_id: @member.id)
+    @attendance = Attendance.where(member_id: @member.id, work_date: Date.today).last
+    @attendance.update(end_time: Time.now)
     @attendance.save
     redirect_to("/member/#{@member.id}")
   end

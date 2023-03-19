@@ -14,4 +14,40 @@
     </ul>
   </div>
 </header>
-勤怠管理します
+
+<main>
+  <div class="management_page_name">
+    従業員の勤怠を管理します
+  </div>
+ <table class="admin_management_table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>ID</th>
+      <th>雇用形態</th>
+      <th>労働日数</th>
+      <th>労働時間</th>
+    </tr>
+  </thead>
+    <tbody>
+          <% @members.each do |member| %>
+          <tr>
+            <td><%= member.name %></td>
+            <td><%= member.id %></td>
+            <td><%= member.type %></td>
+            <td></td>
+             <td>
+              <% total_hours = 0 %>
+              <% member.attendances.each do |attendance| %>
+                <% if attendance.start_time.present? && attendance.end_time.present? %>
+                  <% total_hours += (attendance.end_time - attendance.start_time)/3600.0 %>
+                <% end %>
+              <% end %>
+              <%= sprintf("%.3f", total_hours) %>時間
+            </td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+
+</main>

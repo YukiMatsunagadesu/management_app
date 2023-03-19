@@ -27,24 +27,20 @@
     <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post %>  
   </div>
   <div class="time_message">
-    <% latest_start_time = @attendances.last.start_time %>
-    <% latest_rest_start_time = @attendances.last.rest_start_time %>
-    <% latest_rest_end_time = @attendances.last.rest_end_time %>
-    <% latest_end_time = @attendances.last.end_time %>
-    <div class="latest_start_time">
-      出勤時間<%=latest_start_time%>
-    </div>
-    <div class="latest_rest_start_time">
-      休入時間<%=latest_rest_start_time%>
-    </div>
-    <div class="latest_rest_end_time">
-      休戻時間<%=latest_rest_end_time%>
-    </div>
-    <div class="latest_end_time">
-      退勤時間<%=latest_end_time%> 
-    </div>
+    <% if @attendance %>
+      <div class="latest_start_time">
+        出勤時間<%=@attendance.last.start_time%>
+      </div>
+      <div class="latest_rest_start_time">
+        休入時間<%=@attendance.last.rest_start_time%>
+      </div>
+      <div class="latest_rest_end_time">
+        休戻時間<%=@attendance.last.rest_end_time%>
+      </div>
+      <div class="latest_end_time">
+        退勤時間<%=@attendance.last.end_time%>
+      </div>
+    <% end %>
    </div>
-
-
 </main>
 

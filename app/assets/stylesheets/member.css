@@ -103,8 +103,12 @@
 }
 
 .attendance_management_content{
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
+    text-align: center;
+}
+.attendance_management_content input{
     text-align: center;
 }
 
@@ -112,7 +116,14 @@
     margin: 0 auto;
 }
 
+.simple-calendar{
+    font-size: 1rem;
+}
 
+.simple-calendar td{
+    border: 1px solid black;
+    padding: 0 20px 40px;
+}
 
 
 /* /member/:id/calender  */
@@ -122,7 +133,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     background-color: #39363640;
 }
 .member_work_calender_container .name{
