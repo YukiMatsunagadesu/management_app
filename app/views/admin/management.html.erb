@@ -6,11 +6,11 @@
     <ul>
       <li><%=link_to('home','/admin')%></li>
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('シフト管理','/admin/schedule')%></li>
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
     </ul>
   </div>
 </header>
@@ -29,25 +29,26 @@
       <th>労働時間</th>
     </tr>
   </thead>
-    <tbody>
-          <% @members.each do |member| %>
-          <tr>
-            <td><%= member.name %></td>
-            <td><%= member.id %></td>
-            <td><%= member.type %></td>
-            <td></td>
-             <td>
-              <% total_hours = 0 %>
-              <% member.attendances.each do |attendance| %>
-                <% if attendance.start_time.present? && attendance.end_time.present? %>
-                  <% total_hours += (attendance.end_time - attendance.start_time)/3600.0 %>
-                <% end %>
-              <% end %>
-              <%= sprintf("%.3f", total_hours) %>時間
-            </td>
-          </tr>
+  <tbody>
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.name %></td>
+      <td><%= member.id %></td>
+      <td><%= member.member_type %></td>
+      <% this_month_attendances = member.attendances.where(start_time: Time.now.beginning_of_month..Time.now.end_of_month) %>
+      <td><%= this_month_attendances.count %></td>
+      <td>
+        <% total_hours = 0 %>
+        <% this_month_attendances.each do |attendance| %>
+          <% if attendance.start_time.present? && attendance.end_time.present? %>
+            <% total_hours += (attendance.end_time - attendance.start_time) / 3600.0 %>
+          <% end %>
         <% end %>
-    </tbody>
+        <%= sprintf("%.3f", total_hours) %>時間
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 </main>

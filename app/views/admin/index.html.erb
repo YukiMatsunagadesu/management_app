@@ -6,11 +6,11 @@
     <ul>
       <li><%=link_to('home','/admin')%></li>
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('シフト管理','/admin/schedule')%></li>
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
     </ul>
   </div>
 </header>
@@ -26,9 +26,10 @@
 </main>
 <footer>
     <div class="notice">
-      <ul>
-        <li>お知らせ</li>
-        <li>お知らせ</li>
-      </ul>
-    </div>
+      <% @members.each do |member| %>
+        <% if member.attendances.present? && member.attendances.last.start_time.present? && !member.attendances.last.end_time.present? %>
+          「<%= member.name %>」さんの退勤処理が未履行です
+        <% end %>
+      <% end %>
+      </div>
 </footer>

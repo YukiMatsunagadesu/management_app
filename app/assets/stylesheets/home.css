@@ -18,10 +18,12 @@
 }
 
 .input .member_num{
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
 }
 .input .password{
-    margin: 32px auto;
+    margin: 48px auto;
 }
 input{
     font-size: 100%;
@@ -30,7 +32,7 @@ input{
 .input .submit{
  font-size: 48px;
  padding: 16px 32px;
- margin: 32px auto;
+ margin-left: 320px;
 }
 
 
@@ -55,7 +57,4 @@ input{
         text-align: center;
     }
     
-    .input .submit{
-        font-size: 1.5rem;
-    }
   }

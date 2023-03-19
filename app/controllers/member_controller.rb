@@ -31,6 +31,7 @@ class MemberController < ApplicationController
     @member.name=params[:name]
     @member.mail=params[:mail]
     @member.phone=params[:phone]
+    @member.password=params[:password]
     @member.save
     redirect_to("/member/#{params[:id]}")
   end

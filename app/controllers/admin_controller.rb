@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   def index
+    @members=Member.all
   end
 
   def today
@@ -20,11 +21,13 @@ class AdminController < ApplicationController
   def employeelist_edit
     @member=Member.find(params[:id])
   end
+  
   def employeelist_update
-    @member=Member.find(params[:id])
-    @member.name=params[:name]
-    @member.phone=params[:phone]
-    @member.mail=params[:mail]
+    @member = Member.find(params[:id])
+    @member.name = params[:name]
+    @member.phone = params[:phone]
+    @member.mail = params[:mail]
+    @member.member_type = params[:member_type]
     @member.save
     redirect_to("/admin/employeelist")
   end
@@ -51,7 +54,7 @@ class AdminController < ApplicationController
   end
 
   def member_create
-    @member=Member.new(name: params[:name],type: params[:type],mail:params[:mail],phone: params[:phone],password: params[:password])
+    @member=Member.new(name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password])
     @member.save
     redirect_to("/admin/employeelist")
   end

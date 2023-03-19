@@ -1,6 +1,10 @@
 <div class="login_page">LoginPage</div>
 <div class="input">
-    <div class="member_num">社員No. <input type="text"  placeholder="1"></div>
-    <div class="password">パスワード<input type="text" placeholder="gegwbre"></div>
-    <button class="submit">login</button>
+   <%= form_tag("/login") do %>
+        <div class="member_num">
+            社員No.<input type="text" name="id">
+        </div>
+        <div class="password">パスワード<input type="text" name="password"></div>
+        <button class="submit">login</button>
+   <% end %>
 </div>

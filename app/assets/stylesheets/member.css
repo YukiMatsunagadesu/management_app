@@ -8,7 +8,7 @@
     display: flex;
     border-radius: 16px;
     margin: 4px;
-    padding: 16px;
+    padding: 8px;
 }
 
 
@@ -134,7 +134,8 @@
     align-items: center;
     text-align: center;
     font-size: 1.5rem;
-    background-color: #39363640;
+    padding-top: 8px;
+    background-color: #d5d2d2;
 }
 .member_work_calender_container .name{
     border-bottom: 1px solid rgb(74, 67, 67);
@@ -146,7 +147,7 @@
 
     display:inline-block;
     margin: 0 auto;
-    background-color: #42e1ef60;
+    background-color: #a5ecf195;
     border-radius: 6px;
     padding: 20px;
 }
@@ -172,7 +173,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;
 }
 .profile_edit_container .page_name{
 font-size: 2rem;
@@ -180,11 +180,13 @@ border: 1px solid black;
 padding: 8px 16px;
 border-radius: 4px;
 }
+.form_content{
+    display: flex;
+}
 
 .profile_edit_content{
     margin-top: 32px;
     display: flex;
-    flex-direction: column;
     border: 1px solid black;
     font-size: 2.5rem;
     padding: 32px;
@@ -192,9 +194,22 @@ border-radius: 4px;
     background-color: #a6dfec;
 }
 
+.profile_edit_content .content{
+    display: flex;
+    flex-direction: column;
+}
+.profile_edit_content .content input+input{
+    margin-top: 12px;
+}
+
+.profile_edit_content .title{
+    display: flex;
+    flex-direction: column;
+}
+
 
 .profile_edit_content .submit{
-    margin: 0 180px;
+    margin: 16px 240px;
 }
 
 

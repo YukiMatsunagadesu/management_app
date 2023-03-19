@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/', to: 'home#top'
+  post '/login', to:'home#login'
   get '/admin', to:'admin#index'
   get '/admin/today', to:'admin#today'
   get '/admin/application', to:'admin#application'
