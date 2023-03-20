@@ -8,7 +8,7 @@
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
-      <li><%=link_to('シフト管理','/admin/schedule')%></li>
+      <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
       <li><%=link_to('シフト申請一覧','/admin/application')%></li>
       <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
     </ul>
@@ -16,8 +16,13 @@
 </header>
 <main>
   <div class="new_member_container">
+    <div class="flash_message">
+      <% if flash[:alert] %>
+        <%= flash[:alert] %>
+      <% end %>
+    </div>
     <div class="new_member_content">
-      <p>新しいメンバーを追加してください</p>
+      <p>新しいメンバーを追加します</p>
       <%= form_tag("/admin/member_create") do%>
         <div class="new_member_form_content">
           名前<input type="text" name="name">

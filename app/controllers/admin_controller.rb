@@ -21,15 +21,20 @@ class AdminController < ApplicationController
   def employeelist_edit
     @member=Member.find(params[:id])
   end
-  
+
   def employeelist_update
     @member = Member.find(params[:id])
     @member.name = params[:name]
     @member.phone = params[:phone]
     @member.mail = params[:mail]
     @member.member_type = params[:member_type]
-    @member.save
-    redirect_to("/admin/employeelist")
+    if @member.save
+      flash[:notice] ="メンバー情報を編集しました"
+      redirect_to("/admin/employeelist")
+    else
+      flash[:alert] = "メンバーの編集に失敗しました"
+      redirect_to("/admin/#{@member.id}employeelist_edit")
+    end
   end
 
   def employeelist_delete
@@ -55,8 +60,13 @@ class AdminController < ApplicationController
 
   def member_create
     @member=Member.new(name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password])
-    @member.save
-    redirect_to("/admin/employeelist")
+    if @member.save
+      flash[:notice] ="新メンバーを追加しました"
+      redirect_to("/admin/employeelist")
+    else
+      flash[:alert] = "メンバーの追加に失敗しました"
+      redirect_to("/admin/new_member")
+    end
   end
   
 end

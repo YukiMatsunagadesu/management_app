@@ -84,6 +84,10 @@
   color: black;
 }
 
+.member_add_flash{
+  text-align: center;
+  color: rgb(116, 116, 215);
+}
 
 .member_list{
   margin: 16px;
@@ -103,9 +107,12 @@
 .member_content a{
   text-decoration:none;
   margin: 4px auto;
-  background-color: #63bee2;
+  background-color: #a7d7e9;
   color: black;
   padding: 3px 7px;
+}
+.member_content a:hover{
+  background-color: #65c2e1;
 }
 
 .member_content button {
@@ -117,14 +124,23 @@
 }
 
 .member_content button:hover {
-  background-color: #f22828;
+  background-color: #df6060;
   color: rgb(14, 13, 13);
 }
 
 
 
 /* admin/employeelist_editのスタイリング */
+.employeelist_edit_page_name{
+  font-size:1.5rem;
+  text-align: center;
+  margin-top: 32px;
+  background-color: #c0bbbb;
+  padding: 32px;
+  border-radius: 32px 32px 0 0;
+}
 .employeelist_edit_container{
+  background-color: #c0bbbb;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
@@ -132,12 +148,25 @@
   align-items: center;
   height: 70vh;
 }
-
+.employeelist_edit_container .member_edit_flash{
+  font-size: 1rem; 
+  color: rgb(255, 0, 0);
+}
 
 .employeelist_edit_content{
+  display: flex;
+  flex-direction: row;
   border: 1px solid black;
+  background-color: #c1e9e6;
   padding: 32px;
-  margin: 32px;
+}
+.employeelist_edit_content .form{
+  display: flex;
+}
+
+.employeelist_edit_content .content{
+  display: flex;
+  flex-direction: column;
 }
 .employeelist_edit_content .submit{
   margin-top: 32px;
@@ -145,13 +174,15 @@
 }
 /* management.html.erb  */
 .management_page_name{
+  background-color: #cff8f2;
+  padding:8px;
   margin-top: 32px;
   font-size: 2rem;
   text-align: center;
 }
 .admin_management_table{
   border: 1px solid black;
-  margin: 32px auto;
+  margin: 16px auto;
   font-size: 2rem;
   padding: 4px;
 }
@@ -167,11 +198,16 @@
 /* new_member.html.erb  */
 .new_member_container{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 64px;
 }
+.new_member_container .flash_message{
+  color: red;
+}
 .new_member_content{
+  background-color: #eff9f8;
   font-size: 2rem;
   border: 1px solid black;
   margin: 32px;
@@ -179,6 +215,7 @@
 }
 .new_member_content p{
   font-size: 1rem;
+  text-align: center;
 }
 .new_member_form_content{
   display: flex;
@@ -192,6 +229,10 @@
 .admin_schedule_container{
   display: flex;
   flex-wrap: wrap;
+  background-color: #d1c8c8;
+  padding: 36px;
+  border-radius: 36px;
+  margin: 36px;
 }
 
 .schedule_page .page_name{
@@ -252,14 +293,14 @@
   margin: 0 auto;
   padding: 32px;
   height: 80vh;
-  background-color: #c5c7c79b;
+  background-color: #bec0c29b;
 }
 
 .admin_today_content{
   margin: 0 auto;
 }
 .admin_today_content .name{
-  background-color: #c2eff683;
+  background-color: #c3f3ff83;
   border: 0.2px solid rgb(0, 0, 0);
   padding: 8px ;
   margin: 8px;

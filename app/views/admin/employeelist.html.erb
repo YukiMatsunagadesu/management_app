@@ -8,7 +8,7 @@
       <li><%=link_to('今日のメンバー','/admin/today')%></li>
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
-      <li><%=link_to('シフト管理','/admin/schedule')%></li>
+      <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
       <li><%=link_to('シフト申請一覧','/admin/application')%></li>
       <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
     </ul>
@@ -16,6 +16,11 @@
 </header>
 <main>
 <div class="member_add"><%=link_to('メンバーを追加します','/admin/new_member')%></div>
+<div class="member_add_flash">
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>
 <div class="member_list">
   <% @members.each do |member| %>
     <div class="member_content">
@@ -26,7 +31,7 @@
       電話番号 <%= member.phone%>
       パスワード <%= member.password%>
       <%=link_to("編集する","/admin/#{member.id}/employeelist_edit")%>
-      <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post"}) %>
+      <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post",data: { turbo_confirm: "本当に削除しますか？" } }) %>
     </div>
   <% end %>
 </div>
