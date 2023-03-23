@@ -11,18 +11,37 @@
     padding: 8px;
 }
 
+.member_header .member_logout{
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 4px 12px;
+    background-color: #f4efef;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    margin: 16px;
+}
+
+.member_header .member_logout a{
+text-decoration: none;
+color: black;
+}
+.member_header .member_logout:hover{
+background-color: #1716164b;
+}
 
 .member_header .name{
     height: fit-content;
     background-color: #f0abab;
     border-radius: 16px;
     padding: 16px;
-
+    display: flex;
+    align-items: center;
 }
 
 .member_burger{
     border: 1px solid rgb(125, 121, 121);
-    width: fit-content;
     padding: 16px;
     margin-left: auto;
 }
@@ -215,6 +234,14 @@ border-radius: 4px;
 
 
 /* top.html.erb  */
+
+
+.login_success{
+    font-size: 0.5rem;
+    color: blue;
+    text-align: center;
+}
+
 .member_top_container{
     font-size: 2rem;
     text-align: center;
@@ -243,6 +270,7 @@ border-radius: 4px;
     cursor: pointer;
 }
 .time_message{
+    margin-top: 80px;
     font-size: 1.5rem;
     text-align: center;
 }

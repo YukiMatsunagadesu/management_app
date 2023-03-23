@@ -1,10 +1,21 @@
-<div class="login_page">LoginPage</div>
-<div class="input">
-   <%= form_tag("/login") do %>
+<main>
+  <div class="login_page">
+      LoginPage
+  </div>
+  <div class="login_flash_notice">
+    <%if flash[:alert]%>
+      <%=flash[:alert]%>
+    <%end%>
+  </div>
+  <div class="input">
+    <%= form_tag("/login") do %>
         <div class="member_num">
-            社員No.<input type="text" name="id">
+          社員No.<input type="text" name="id" >
         </div>
-        <div class="password">パスワード<input type="text" name="password"></div>
+        <div class="password">
+          パスワード<input type="password" name="password" >
+        </div>
         <button class="submit">login</button>
-   <% end %>
-</div>
+    <% end %>
+   </div>
+</main>

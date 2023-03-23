@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_161242) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_122706) do
   create_table "attendances", force: :cascade do |t|
     t.date "work_date"
     t.datetime "start_time"
@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_161242) do
     t.string "member_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "authority"
   end
 
   create_table "overtimes", force: :cascade do |t|

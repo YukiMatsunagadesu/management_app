@@ -1,8 +1,16 @@
 <header class="member_header">
   <div class="name">
-    お帰りなさい社員No.<%= @id %> <%= @member.name %>さん
+    <div class="login_success">
+    <%if flash[:notice]%>
+        <%=flash[:notice]%>
+    <%end%>
   </div>
-
+  <div>お帰りなさい社員No.<%= @id %> <%= @member.name %>さん </div>
+    <% if @member.authority%>
+    <%=link_to("管理者","/admin")%>
+    <%end%>
+    <div class="member_logout"><%=button_to("ログアウト","/member/#{@member.id}/logout",{method: "post"})%></div>
+  </div>
  <ul class="member_burger">
     <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
@@ -21,25 +29,43 @@
     <%end%>
   </div>
   <div class="manage_button">
-    <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post %>
-    <%= button_to '休入', "/member/#{@member.id}/rest_start_time", method: :post %>
-    <%= button_to '休戻', "/member/#{@member.id}/rest_end_time", method: :post %>
-    <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post %>  
+    <% if @attendance.find_by(work_date: Date.today, start_time: nil) ||@attendance.blank?%>
+      <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post, id: 'startButton'%>
+    <%else %>
+       出勤
+    <%end%>  
+    <% if @attendance.find_by(work_date: Date.today, rest_start_time: nil) %>
+      <%= button_to '休入', "/member/#{@member.id}/rest_start_time", method: :post,id: 'restStartButton' %>
+    <%else%>
+      休入
+    <%end%>
+    <% if @attendance.find_by(work_date: Date.today, rest_end_time: nil) %>
+      <%= button_to '休戻', "/member/#{@member.id}/rest_end_time", method: :post,id: 'restEndButton' %>
+    <%else%>
+      休戻
+    <%end%>
+    <% if @attendance.find_by(work_date: Date.today, end_time: nil) %>
+      <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post,id: 'endButton' %>  
+    <%else%>
+      退勤
+    <%end%>
   </div>
   <div class="time_message">
-    <% if @attendance %>
+    <% if @attendance.present? %>
       <div class="latest_start_time">
-        出勤時間<%=@attendance.last.start_time%>
+        出勤時間<%=@attendance&.last.start_time&.strftime("%Y-%m-%d %H:%M:%S")%>
       </div>
       <div class="latest_rest_start_time">
-        休入時間<%=@attendance.last.rest_start_time%>
+        休入時間<%=@attendance&.last.rest_start_time&.strftime("%Y-%m-%d %H:%M:%S")%>
       </div>
       <div class="latest_rest_end_time">
-        休戻時間<%=@attendance.last.rest_end_time%>
+        休戻時間<%=@attendance&.last.rest_end_time&.strftime("%Y-%m-%d %H:%M:%S")%>
       </div>
       <div class="latest_end_time">
-        退勤時間<%=@attendance.last.end_time%>
+        退勤時間<%=@attendance&.last.end_time&.strftime("%Y-%m-%d %H:%M:%S")%>
       </div>
+    <%else%>
+      まだ出勤データがありません
     <% end %>
    </div>
 </main>

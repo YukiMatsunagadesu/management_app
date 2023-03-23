@@ -24,6 +24,9 @@
 <div class="member_list">
   <% @members.each do |member| %>
     <div class="member_content">
+      <%if member.authority%>
+      <%=member.authority ? "👑" : ""%>
+      <%end%>
       社員番号 <%= member.id %>
       名前 <%= member.name %>
       雇用形態 <%= member.member_type %>

@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
+  before_action :authenticate_member,except: :employeelist
+  # before_action :authenticate_admin
+
   def index
     @members=Member.all
   end
@@ -28,19 +31,25 @@ class AdminController < ApplicationController
     @member.phone = params[:phone]
     @member.mail = params[:mail]
     @member.member_type = params[:member_type]
+    @member.authority= params[:authority]
     if @member.save
-      flash[:notice] ="メンバー情報を編集しました"
+      flash[:notice] ="--メンバー情報を編集しました--"
       redirect_to("/admin/employeelist")
     else
-      flash[:alert] = "メンバーの編集に失敗しました"
+      flash[:alert] = "--メンバーの編集に失敗しました--"
       redirect_to("/admin/#{@member.id}employeelist_edit")
     end
   end
 
   def employeelist_delete
     @member=Member.find(params[:id])
-    @member.destroy
-    redirect_to("/admin/employeelist")
+   if @member.destroy
+      flash[:notice] ="--メンバーを削除しました--"
+      redirect_to("/admin/employeelist")
+    else
+      flash[:alert] = "--メンバーの削除に失敗しました--"
+      redirect_to("/admin/new_member")
+    end
   end
 
   def management
@@ -59,14 +68,23 @@ class AdminController < ApplicationController
   end
 
   def member_create
-    @member=Member.new(name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password])
+    @member=Member.new(name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password],authority: false)
     if @member.save
-      flash[:notice] ="新メンバーを追加しました"
+      # @attendance = Attendance.create(member_id: @member.id, work_date: Date.today,start_time: Time.now)
+      flash[:notice] ="--新メンバーを追加しました--"
       redirect_to("/admin/employeelist")
     else
-      flash[:alert] = "メンバーの追加に失敗しました"
+      flash[:alert] = "--メンバーの追加に失敗しました--"
       redirect_to("/admin/new_member")
     end
+  end
+
+  def logout
+    if @current_member
+      session.delete(:member_id)
+      @current_member=nil
+    end
+    redirect_to("/")
   end
   
 end

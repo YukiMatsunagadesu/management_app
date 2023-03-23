@@ -1,4 +1,7 @@
 class MemberController < ApplicationController
+  before_action :authenticate_member
+  # before_action :authenticate_admin
+
   def top
     @id=params[:id]
     @member=Member.find(params[:id])
@@ -65,6 +68,12 @@ class MemberController < ApplicationController
     redirect_to("/member/#{@member.id}")
   end
   
-
+  def logout
+    if @current_member
+      session.delete(:member_id)
+      @current_member=nil
+    end
+    redirect_to("/")
+  end
 
 end

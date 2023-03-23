@@ -25,12 +25,14 @@
         <%=form_tag("/admin/#{@member.id}/employeelist_update") do%>
          <div class="form">
             <div class="title">
+              <div>管理者権限</div>
               <div>名前</div>
               <div>メールアドレス</div>
               <div>電話番号</div>
               <div>雇用形態</div>
             </div>    
             <div class="content">
+              <div><input type="checkbox" <%= @member.authority ? 'checked' : '' %> value="true" name="authority" class="checkbox"></div>
               <div><input type="text" value="<%= @member.name %>" name="name"> </div>
               <div><input type="text" value="<%= @member.mail %>" name="mail"></div>
               <div><input type="text" value="<%= @member.phone %>" name="phone"></div>

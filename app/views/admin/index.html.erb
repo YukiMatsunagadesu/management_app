@@ -1,7 +1,9 @@
 <header class="admin_header">
   <div class="header_message">
-    お帰りなさい社員No.1 あかさたなさん
+    お帰りなさい社員No.<%=@current_member.id%> あかさたなさん 
+    <div class="admin_logout"><%=link_to("ログアウト","/",{method: "post"})%></div>
   </div>
+  
   <div class="header_list">
     <ul>
       <li><%=link_to('home','/admin')%></li>
@@ -28,7 +30,7 @@
     <div class="notice">
       <% @members.each do |member| %>
         <% if member.attendances.present? && member.attendances.last.start_time.present? && !member.attendances.last.end_time.present? %>
-          「<%= member.name %>」さんの退勤処理が未履行です
+         社員No.<%=member.id%> 「<%= member.name %>」さんの退勤処理が未処理です
         <% end %>
       <% end %>
       </div>
