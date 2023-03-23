@@ -7,6 +7,7 @@
 .admin_header{
   margin: 8px;
   font-size:1.5rem;
+  padding: 8px 16px;
 }
 .admin_header .header_message{
   display: flex;
@@ -14,12 +15,12 @@
   justify-content: space-between;
   background-color: #a3ddee;
   padding: 8px 24px;
-  border-radius: 24px;
+  border-radius: 24px 0 0 24px;
 }
 .admin_header .header_message .admin_logout{
   border: 1px solid black;
   border-radius: 16px;
-  padding: 4px 12px;
+  padding: 0px 8px;
   background-color: #f4efef;
   cursor: pointer;
 }
@@ -36,7 +37,7 @@
 .header_list{
   display: flex;
   justify-content: flex-end;
-  margin-right: 16px;
+ 
 }
 .header_list ul{
   display: flex;
@@ -50,7 +51,9 @@
   border-radius: 4px;
   padding: 0 16px;
 }
-
+.header_list ul li:nth-child(5){
+  border-radius: 4px 0 4px 4px;
+}
 
 .header_list ul li:hover{
  background-color: #413b3b4b;
@@ -61,25 +64,7 @@
 }
 
 
-/* index.html.erb */
-.admin_today{
-  font-size: 5rem;
-  text-align: center;
-}
-.message{
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 32px;
-}
 
-.admin_content{
-  padding: 32px;
-  margin: 96px 32px;
-}
-.notice{
-  font-size: 1.5rem;
-
-}
 
 
 
@@ -148,7 +133,27 @@
   color: rgb(14, 13, 13);
 }
 
+/* index.html.erb */
+.admin_today{
+  font-size: 5rem;
+  text-align: center;
+}
+.message{
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 32px;
+}
 
+.admin_content{
+  padding: 32px;
+  margin: 96px 32px;
+}
+.notice{
+  margin-left: 32px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
 
 /* admin/employeelist_editのスタイリング */
 .employeelist_edit_page_name{
@@ -303,6 +308,10 @@
   flex-direction: column;
   text-align: center;
 }
+.schedule_new_content .simple-calendar{
+  background-color: #afe4e4;
+  padding: 24px;
+}
 
 .schedule_new_content table{
   margin: 0 auto;
@@ -311,6 +320,19 @@
   text-align: center;
 }
 
+.schedule_new_content table td{
+  justify-content: flex-end;
+}
+
+
+.time_edit{
+  margin-top: 24px;
+}
+
+.time_edit a{
+  color: black;
+  text-decoration: none;
+}
 
 
 
@@ -330,7 +352,8 @@
 
 .admin_today_content{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  margin-left: 24px;
   flex-wrap: wrap;
   margin-top: 24px;
 }
@@ -346,4 +369,74 @@
   border-radius: 4px;
 }
 
+@media(max-width:599px){
+  /* * */
+  .admin_header{
+    margin: 0;
+    padding: 0;
+  }
+  .admin_header .header_message{
+    font-size: 0.8rem;
+    border-radius: 0;
+  }
 
+  
+  .admin_header ul li{
+    padding: 2px 14px;
+  }
+  .admin_header ul li a{
+    font-size: 0.6rem;
+  }
+  /* index.html.erb  */
+
+  .admin_content .admin_today{
+    font-size: 2.8rem;
+  }
+  /* today.html.erb  */
+  .admin_today_container{
+    margin-top: 32px;
+    width: 80vw;
+  }
+
+  .admin_today_content{
+    display: flex;
+   justify-content: center;
+  }
+
+  /* employeelist.html.erb  */
+  .member_list .member_content{
+    padding: 16px;
+  }
+  .member_list .member_content .button{
+    display: flex;
+    align-items: center;
+  }
+  .member_list .member_content .button a{
+    margin-right: 16px;
+    padding: 7px 10px;
+  }
+
+  .member_list .member_content .info{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .member_list .member_content .info div+div{
+    margin-left: 8px;
+  }
+  .schedule_new_content{
+margin-top: 24px;
+  }
+
+  .schedule_new_content .simple-calendar{
+    max-width: 95%;
+    max-height: 500px;
+    overflow: auto;
+  }
+  .schedule_new_content .simple-calendar .table{
+    font-size: 0.8rem;
+  }
+  .schedule_new_content .simple-calendar .table tr td{
+    vertical-align: top;
+    padding: 0 12px 24px;
+  }
+}

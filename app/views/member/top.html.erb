@@ -6,17 +6,23 @@
     <%end%>
   </div>
   <div>お帰りなさい社員No.<%= @id %> <%= @member.name %>さん </div>
-    <% if @member.authority%>
-    <%=link_to("管理者","/admin")%>
-    <%end%>
-    <div class="member_logout"><%=button_to("ログアウト","/member/#{@member.id}/logout",{method: "post"})%></div>
+    <div class="member_header_button">
+      <% if @member.authority%>
+        <div class="member_to_admin">
+          <%=link_to("管理者用ページへ","/admin")%>
+        </div>
+      <%end%>
+      <div class="member_logout"><%=button_to("ログアウト","/member/#{@member.id}/logout",{method: "post"})%></div>
+    </div>
   </div>
  <ul class="member_burger">
     <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
-    <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
-    <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+      <!--
+        <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
+        <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+      -->
   </ul>
 </header>
 <main>
@@ -32,22 +38,22 @@
     <% if @attendance.find_by(work_date: Date.today, start_time: nil) ||@attendance.blank?%>
       <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post, id: 'startButton'%>
     <%else %>
-       出勤
+      <div> 出勤</div>
     <%end%>  
     <% if @attendance.find_by(work_date: Date.today, rest_start_time: nil) %>
       <%= button_to '休入', "/member/#{@member.id}/rest_start_time", method: :post,id: 'restStartButton' %>
     <%else%>
-      休入
+      <div>休入</div>
     <%end%>
     <% if @attendance.find_by(work_date: Date.today, rest_end_time: nil) %>
       <%= button_to '休戻', "/member/#{@member.id}/rest_end_time", method: :post,id: 'restEndButton' %>
     <%else%>
-      休戻
+      <div>休戻</div>
     <%end%>
     <% if @attendance.find_by(work_date: Date.today, end_time: nil) %>
       <%= button_to '退勤', "/member/#{@member.id}/end_time", method: :post,id: 'endButton' %>  
     <%else%>
-      退勤
+      <div>退勤</div>
     <%end%>
   </div>
   <div class="time_message">

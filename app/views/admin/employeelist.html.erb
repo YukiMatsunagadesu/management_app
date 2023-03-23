@@ -1,6 +1,6 @@
 <header class="admin_header">
   <div class="header_message">
-  お帰りなさい社員No.1 あかさたなさん
+  お帰りなさい社員No.<%=@current_member.id%> あかさたなさん
   </div>
   <div class="header_list">
     <ul>
@@ -9,8 +9,10 @@
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
+     <!--
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li> 
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>%>
+      -->
     </ul>
   </div>
 </header>
@@ -27,14 +29,18 @@
       <%if member.authority%>
       <%=member.authority ? "👑" : ""%>
       <%end%>
-      社員番号 <%= member.id %>
-      名前 <%= member.name %>
-      雇用形態 <%= member.member_type %>
-      メールアドレス <%= member.mail%>
-      電話番号 <%= member.phone%>
-      パスワード <%= member.password%>
-      <%=link_to("編集する","/admin/#{member.id}/employeelist_edit")%>
-      <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post",data: { turbo_confirm: "本当に削除しますか？" } }) %>
+      <div class="info">
+        <div>社員番号 <%= member.id %></div>
+        <div>名前 <%= member.name %></div>
+        <div>雇用形態 <%= member.member_type %></div>
+        <div>メールアドレス <%= member.mail%></div>
+        <div>電話番号 <%= member.phone%></div>
+        <div>パスワード <%= member.password%></div>
+      </div>
+      <div class="button">
+        <%=link_to("編集する","/admin/#{member.id}/employeelist_edit")%>
+        <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post",data: { turbo_confirm: "本当に削除しますか？" } }) %>
+      </div>
     </div>
   <% end %>
 </div>

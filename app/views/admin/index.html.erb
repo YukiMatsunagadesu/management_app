@@ -11,8 +11,10 @@
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
+     <!--
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li> 
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>%>
+      -->
     </ul>
   </div>
 </header>
@@ -22,7 +24,7 @@
         <%=Time.now.strftime('%Y-%m-%d %H:%M')%>
       </div>
       <div class="message">
-      今日も一日頑張りましょう
+      今日も一日頑張りましょう!
       </div>
     </div>
 </main>
@@ -30,7 +32,7 @@
     <div class="notice">
       <% @members.each do |member| %>
         <% if member.attendances.present? && member.attendances.last.start_time.present? && !member.attendances.last.end_time.present? %>
-         社員No.<%=member.id%> 「<%= member.name %>」さんの退勤処理が未処理です
+          <div>社員No.<%=member.id%> 「<%= member.name %>」さんの退勤処理が未処理です</div>
         <% end %>
       <% end %>
       </div>

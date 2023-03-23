@@ -7,15 +7,17 @@
       <%=flash[:alert]%>
     <%end%>
   </div>
-  <div class="input">
-    <%= form_tag("/login") do %>
-        <div class="member_num">
-          社員No.<input type="text" name="id" >
-        </div>
-        <div class="password">
-          パスワード<input type="password" name="password" >
-        </div>
-        <button class="submit">login</button>
-    <% end %>
+  <div class="login_container">
+    <div class="input">
+      <%= form_tag("/login") do %>
+          <div class="member_num">
+            社員No.<input type="text" name="id" >
+          </div>
+          <div class="password">
+            パスワード<input type="password" name="password" >
+          </div>
+          <button class="submit">login</button>
+      <% end %>
+    </div>
    </div>
 </main>

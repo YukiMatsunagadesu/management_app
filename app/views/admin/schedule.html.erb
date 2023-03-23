@@ -1,6 +1,6 @@
 <header class="admin_header">
   <div class="header_message">
-  お帰りなさい社員No.1 あかさたなさん
+  お帰りなさい社員No.<%=@current_member.id%> あかさたなさん
   </div>
   <div class="header_list">
     <ul>
@@ -9,8 +9,10 @@
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
+     <!--
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li> 
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>%>
+      -->
     </ul>
   </div>
 </header>
@@ -20,8 +22,8 @@
   <div class="admin_schedule_container">   
       <% @members.each do |member|%>
         <div class="admin_schedule_content">
-        社員番号<%=member.id%>
-        <%=link_to(member.name ,"/admin/schedule/#{member.id}")%>
+          <div>社員番号<%=member.id%> </div>
+          <%=link_to(member.name ,"/admin/schedule/#{member.id}")%>
         </div>
       <%end%>
   </div>

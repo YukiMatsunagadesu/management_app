@@ -11,24 +11,50 @@
     padding: 8px;
 }
 
-.member_header .member_logout{
+.member_header_button{
+    display: flex;
+}
+
+
+.member_header .member_to_admin {
     border: 1px solid black;
     border-radius: 16px;
     padding: 4px 12px;
     background-color: #f4efef;
-    cursor: pointer;
     display: flex;
     align-items: center;
     height: fit-content;
     margin: 16px;
 }
 
-.member_header .member_logout a{
-text-decoration: none;
-color: black;
+.member_header .member_to_admin:hover{
+    transform: translateY(2px);
+}
+
+.member_header .member_to_admin a{
+    text-decoration: none;
+    color: black;
+ }
+.member_header .member_to_admin a:hover{
+    cursor: default;
+}
+
+.member_header .member_logout{
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 4px 12px;
+    background-color: #f4efef;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    margin: 16px;
 }
 .member_header .member_logout:hover{
-background-color: #1716164b;
+    transform: translateY(2px);
+ }
+
+.member_header .member_logout button{
+    border: none;
 }
 
 .member_header .name{
@@ -153,7 +179,7 @@ background-color: #1716164b;
     align-items: center;
     text-align: center;
     font-size: 1.5rem;
-    padding-top: 8px;
+    padding: 64px;
     background-color: #d5d2d2;
 }
 .member_work_calender_container .name{
@@ -162,7 +188,7 @@ background-color: #1716164b;
     margin-bottom: 16px;
 }
 
-.simple-calendar{
+.member_work_calender_container .simple-calendar{
 
     display:inline-block;
     margin: 0 auto;
@@ -179,9 +205,10 @@ background-color: #1716164b;
     color: blue;
 }
 
-.simple-calendar td{
+.member_work_calender_container .simple-calendar td{
     border: 1px solid black;
     padding: 0 40px 40px;
+    vertical-align: top;
 }
 
 
@@ -210,7 +237,7 @@ border-radius: 4px;
     font-size: 2.5rem;
     padding: 32px;
 
-    background-color: #a6dfec;
+    background-color: #d4ebfb;
 }
 
 .profile_edit_content .content{
@@ -251,14 +278,13 @@ border-radius: 4px;
 }
 
 .manage_button{
-    border: 1px solid black;
     background-color: #d4ebfb;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 32px;
-    margin: 32px 240px;
-    padding: 32px;
+    margin: 64px 240px;
+    padding: 96px;
 
 }
 
@@ -286,4 +312,101 @@ border-radius: 4px;
 }
 .latest_end_time{
  border: 0.2px solid black;
+}
+
+@media(max-width:599px){
+    /* * */
+    *{
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+ 
+    /* top.htmlerb */
+    .member_top_container{
+        background-color: none;
+        margin-top: 64px;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .member_header{
+        display: flex;
+        flex-direction: column;
+    }
+    .member_header .member_burger{
+        margin: 16px auto;
+        padding: 4px;
+        display: flex;
+    }
+    .member_header .member_burger li+li{
+        margin-left: 8px;
+    }
+    .member_header .member_burger li a{
+        font-size: 1rem;
+    }
+    .member_header .name{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .member_top_container{
+        margin-top: 0;
+    }
+    .manage_button{
+        margin: 16px 16px 32px;
+        height: 240px;
+    }
+    .manage_button button{
+        font-size: 1rem;
+        min-width: 180px;
+    }
+
+    .time_message{
+        margin-top: 32px;
+    }
+    .profile_edit_container .page_name{
+        margin-top: 48px;
+    }
+    .profile_edit_container .profile_edit_content{
+        padding: 40px;
+        border: none;
+        height: 50vh;
+        
+    }
+.profile_edit_container .profile_edit_content form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.profile_edit_container .profile_edit_content form .title{
+    justify-content: space-between;
+}
+
+.profile_edit_container .profile_edit_content  .submit{
+    margin: 16px 0;
+}
+
+.member_work_calender_container {
+    margin-top: 48px;
+    padding: 48px 0;
+}
+  
+.member_work_calender_container .simple-calendar .table {
+    font-size: 0.8rem;
+
+  }
+
+
+.member_work_calender_container .simple-calendar {
+    max-width: 95%;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .member_work_calender_container .simple-calendar .table tr td{
+    vertical-align: top;
+    padding: 0 12px 24px;
+  }
+  
 }

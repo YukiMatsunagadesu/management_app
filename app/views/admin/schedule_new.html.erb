@@ -1,6 +1,6 @@
 <header class="admin_header">
   <div class="header_message">
-  お帰りなさい社員No.1 あかさたなさん
+  お帰りなさい社員No.<%=@current_member.id%> あかさたなさん
   </div>
   <div class="header_list">
     <ul>
@@ -9,8 +9,10 @@
       <li><%=link_to('従業員一覧','/admin/employeelist')%></li>
       <li><%=link_to('勤怠管理','/admin/management')%></li>
       <li><%=link_to('勤務カレンダー','/admin/schedule')%></li>
-      <li><%=link_to('シフト申請一覧','/admin/application')%></li>
-      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>
+     <!--
+      <li><%=link_to('シフト申請一覧','/admin/application')%></li> 
+      <li><%=link_to('その他申請一覧','/admin/other_application')%></li>%>
+      -->
     </ul>
   </div>
 </header>
@@ -26,8 +28,10 @@
             <br>
             <% attendance = Attendance.find_by(work_date: date,member_id:@member.id) %>
             <% if attendance %>
-              出勤 <%= attendance&.start_time&.strftime('%H:%M')%><br>
-              退勤 <%= attendance&.end_time&.strftime('%H:%M')%><br>
+              <div>出勤</div>
+              <div><%= attendance&.start_time&.strftime('%H:%M')%></div>
+              <div>退勤 </div>
+              <div><%= attendance&.end_time&.strftime('%H:%M')%></div>
             <% end %>
           <% end %>
         </div>

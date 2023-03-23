@@ -7,8 +7,10 @@
       <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
       <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
       <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
-      <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
-      <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+       <!--
+        <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
+        <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+       -->
    </ul>
 </header>
 <main>
@@ -21,8 +23,10 @@
         <%= date.strftime('%d') %><br>
           <% attendance = Attendance.find_by(work_date: date,member_id:@member.id) %>
           <% if attendance %>
-           実始 <%=attendance&.start_time&.strftime('%H:%M')%><br>
-           実終 <%=attendance&.end_time&.strftime('%H:%M')%>
+          <div>実始</div>
+          <div><%=attendance&.start_time&.strftime('%H:%M')%></div>
+          <div>実終</div>
+          <div><%=attendance&.end_time&.strftime('%H:%M')%></div>
           <%end%>
       <% end %>
    </div>

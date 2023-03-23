@@ -8,8 +8,10 @@
     <li><%=link_to("ホームヘ","/member/#{@member.id}")%></li>
     <li> <%=link_to("勤務カレンダー","/member/#{@member.id}/calender")%> </li>
     <li><%=link_to("プロフィール編集","/member/#{@member.id}/profile_edit")%></li>
+  <!--
     <li> <%=link_to("シフト管理","/member/#{@member.id}/attendance_management")%> </li>
     <li> <%=link_to("各種申請","/member/#{@member.id}/application")%> </li>
+   -->
   </ul>
 </header>
 <main>
@@ -18,7 +20,7 @@
       <div class="profile_edit_content">
         <%=form_tag("/member/#{@id}/profile_update") do%>
         <div class="form_content">
-            <div class="tiitle" >
+            <div class="title" >
               <div>名前</div>
               <div>メール</div>
               <div>電話</div>
