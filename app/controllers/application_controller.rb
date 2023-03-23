@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :set_current_member
-    # before_action :authenticate_member
+    before_action :authenticate_member
 
     # before_action :authenticate_admin
 
@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
     end
       
 
-    # def authenticate_member
-    #     if
-    #       @current_member.nil? || !@current_member.authority && (@current_member.id != params[:id].to_i && request.path != '/')
-    #       redirect_to("/")
-    #     end
-    # end    
+    def authenticate_member
+        if
+          @current_member.nil? || !@current_member.authority && (@current_member.id != params[:id].to_i && request.path != '/')
+          redirect_to("/")
+        end
+    end    
 end
