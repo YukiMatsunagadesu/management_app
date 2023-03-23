@@ -24,7 +24,7 @@
   <% end %>
 </div>
 <div class="member_list">
-  <% @members.each do |member| %>
+  <% @members.sort_by(&:id).each do |member| %>
     <div class="member_content">
       <%if member.authority%>
       <%=member.authority ? "👑" : ""%>

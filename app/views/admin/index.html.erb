@@ -21,7 +21,7 @@
 <main>
     <div class="admin_content">
       <div class="admin_today">
-        <%=Time.now.strftime('%Y-%m-%d %H:%M')%>
+        <%= (Time.now + 7.hours).strftime('%Y-%m-%d %H:%M') %>
       </div>
       <div class="message">
       今日も一日頑張りましょう!
