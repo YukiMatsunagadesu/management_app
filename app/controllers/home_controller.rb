@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_member, except: [:top,:login]
+  # before_action :authenticate_member, except: [:top,:login]
 
   # before_action :authenticate_admin, except: [:top,:login]
 
