@@ -35,8 +35,11 @@
     <%end%>
   </div>
   <div class="manage_button">
-    <% if @attendance.find_by(work_date: Date.today, start_time: nil) ||@attendance.blank?%>
+    <% today_attendance = @attendance.find_by(work_date: Date.today) %>
+    <% if today_attendance.nil? %>
       <%= button_to '出勤', "/member/#{@member.id}/start_time", method: :post, id: 'startButton'%>
+     <% elsif today_attendance.start_time.nil? %>
+      <%= button_to '退勤', "/member/#{today_attendance.id}/end_time",method: :post, id: 'endButton' %>
     <%else %>
       <div> 出勤</div>
     <%end%>  
