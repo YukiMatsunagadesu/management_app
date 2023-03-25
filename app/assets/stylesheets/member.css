@@ -349,6 +349,10 @@ border-radius: 4px;
         display: flex;
         flex-direction: column;
     }
+    .member_header .name .member_logout button{
+        background-color: #f4efef;
+        color: black;
+    }
     .member_top_container{
         margin-top: 0;
     }
@@ -358,7 +362,7 @@ border-radius: 4px;
     }
     .manage_button button{
         font-size: 1rem;
-        min-width: 180px;
+        width: 80px;
     }
 
     .time_message{
