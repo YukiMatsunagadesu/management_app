@@ -408,10 +408,8 @@
   .member_list .member_content{
     padding: 16px;
   }
-  .member_list .member_content .info .phone{
+  .member_list .member_content .info .phone a[href^="tel:"] {
     background-color: #a4d9e632;
-    
-
   }
   .member_list .member_content .button{
     display: flex;
