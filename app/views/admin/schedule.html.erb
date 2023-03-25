@@ -20,7 +20,7 @@
 <main class="schedule_page">
   <div class="page_name">勤務カレンダー</div>
   <div class="admin_schedule_container">   
-      <% @members.each do |member|%>
+      <% @members.sort_by(&:id).each do |member|%>
         <div class="admin_schedule_content">
           <div>社員番号<%=member.id%> </div>
           <%=link_to(member.name ,"/admin/schedule/#{member.id}")%>
