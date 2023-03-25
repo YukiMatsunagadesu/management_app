@@ -414,14 +414,13 @@
   }
   .member_list .member_content .button a{
     margin-right: 16px;
-    padding: 6px 10px;
+    padding: 5px 10px;
   }
 
   .member_list .member_content .info{
-    display: flex;
-    flex-wrap: wrap;
+    text-align: left;
   }
-  .member_list .member_content .info div+div{
+  .member_list .member_content .info div{
     margin-left: 8px;
   }
   .schedule_new_content{
@@ -439,5 +438,9 @@ margin-top: 24px;
   .schedule_new_content .simple-calendar .table tr td{
     vertical-align: top;
     padding: 0 12px 24px;
+  }
+
+  .employeelist_edit_container {
+    height: 50vh;
   }
 }
