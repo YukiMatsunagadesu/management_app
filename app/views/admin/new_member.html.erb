@@ -25,8 +25,9 @@
     </div>
     <div class="new_member_content">
       <p>新しいメンバーを追加します</p>
-      <%= form_tag("/admin/member_create") do%>
+      <%= form_tag("/admin/member_create" , {multipart: true}) do%>
         <div class="new_member_form_content">
+          写真<input type="file" name="photo">
           名前<input type="text" name="name">
           雇用形態<input type="text" name="member_type">
           メールアドレス<input type="text" name="mail">

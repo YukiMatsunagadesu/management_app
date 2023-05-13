@@ -30,6 +30,7 @@
       <%=member.authority ? "👑" : ""%>
       <%end%>
       <div class="info">
+        <div>写真 <img src="/member_images/<%= member.photo %>"></div>
         <div>社員番号： <%= member.id %></div>
         <div>名前： <%= member.name %></div>
         <div>雇用形態： <%= member.member_type %></div>
@@ -37,11 +38,16 @@
         <div class='phone'>電話番号： <%= member.phone%></div>
         <div>パスワード: <%= member.password%></div>
       </div>
-      <div class="button">
-        <%=link_to("編集する","/admin/#{member.id}/employeelist_edit")%>
-        <%=button_to("削除する","/admin/#{member.id}/employeelist_delete",{method:"post",data: { turbo_confirm: "本当に削除しますか？" } }) %>
+      <div class="edit_button">
+        <%=link_to("編集","/admin/#{member.id}/employeelist_edit")%>
+      </div>
+      <div class="delete_button">
+        <%= link_to "削除","/admin/#{member.id}/employeelist_delete", class: "button",data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+        <%# <%=button_to("削除","/admin/#{member.id}/employeelist_delete",{method:"delete",data: { turbo_confirm: "本当に削除しますか？" } }) %> 
       </div>
     </div>
   <% end %>
 </div>
 </main>
+
+

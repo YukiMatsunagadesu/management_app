@@ -3,3 +3,4 @@ class RenameTypeColumnInMembers < ActiveRecord::Migration[7.0]
     rename_column :members, :type, :member_type
   end
 end
+

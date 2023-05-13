@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :set_current_member
     before_action :authenticate_member
 
-    # before_action :authenticate_admin
+  
 
     def set_current_member
         @current_member = Member.find_by(id: session[:member_id])

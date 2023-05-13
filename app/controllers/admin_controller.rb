@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :authenticate_member,except: :employeelist
-  # before_action :authenticate_admin
+
 
   def index
     @members=Member.all
@@ -68,11 +68,14 @@ class AdminController < ApplicationController
   end
 
   def member_create
-    @member=Member.new(name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password],authority: false)
+    @members=Member.all
+    @member=Member.new(photo: params[:photo],name: params[:name],member_type: params[:member_type],mail:params[:mail],phone: params[:phone],password: params[:password],authority: false)
+    
+    # File.binwrite("public/member_images/#{@member.photo}",params[:photo].read)
     if @member.save
       # @attendance = Attendance.create(member_id: @member.id, work_date: Date.today,start_time: Time.now)
       flash[:notice] ="--新メンバーを追加しました--"
-      redirect_to("/admin/employeelist")
+      redirect_to("/admin/employeelist")      
     else
       flash[:alert] = "--メンバーの追加に失敗しました--"
       redirect_to("/admin/new_member")

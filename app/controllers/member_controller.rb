@@ -1,7 +1,6 @@
 class MemberController < ApplicationController
   before_action :authenticate_member
 
-  # before_action :authenticate_admin
 
   def top
     @id=params[:id]

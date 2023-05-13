@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <div class="employeelist_edit_content">
-        <%=form_tag("/admin/#{@member.id}/employeelist_update") do%>
+        <%=form_tag("/admin/#{@member.id}/employeelist_update", method: :patch) do%>
          <div class="form">
             <div class="title">
               <div>管理者権限</div>
